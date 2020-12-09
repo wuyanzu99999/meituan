@@ -2,6 +2,9 @@
   <div>
     <!-- top -->
     <div class="ktv-top">
+      <router-link to="/index" tag="span">
+        <input type="button" value="<" class="back" />
+      </router-link>
       <van-search
         class="ktv-top-content"
         v-model="value"
@@ -80,6 +83,14 @@ export default {
   position: fixed;
   top: 0;
   z-index: 999;
+}
+.ktv-top .back {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  color: #888;
+  top: 9px;
+  font-size: 17px;
 }
 .ktv-top,
 .ktv-top-content {

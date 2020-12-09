@@ -27,13 +27,24 @@
 </div>
 </template>
 <script>
-
+import axios from 'axios'
 export default {
   name: 'goodsBanner',
   data(){
     return {
+            shopId:this.$route.params.id,
+            shop:{}
     }
-  }
+  },
+      created(){
+        axios.get("/api/goods/selectGoodsByShopId?shopid="+this.shopId,{
+        //    data:"shopid="+this.shopId,
+        })
+        .then(res=>{
+            console.log("res",res.data);
+            this.goods = res.data.data;
+        });               
+    },
 }
 </script>
 <style scoped>

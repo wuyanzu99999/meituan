@@ -1,9 +1,9 @@
 <template>
-    <div id="emile">
-        <EmileHeader/>
-        <EmileMessage/>
-        <FooterNav class="footer"/>
-    </div>
+  <div id="emile">
+    <EmileHeader />
+    <EmileMessage />
+    <FooterNav class="footer" />
+  </div>
 </template>
 
 <script>
@@ -12,18 +12,18 @@ import EmileMessage from "../components/emile-messageList";
 import FooterNav from "../components/index-footerNav";
 
 export default {
-  name: 'emile',
+  name: "emile",
   components: {
     EmileHeader,
     EmileMessage,
-    FooterNav
-  }
-}
+    FooterNav,
+  },
+};
 </script>
 
 <style scoped>
-.footer{
-  position: fixed; 
+.footer {
+  position: fixed;
   bottom: 0;
 }
 </style>

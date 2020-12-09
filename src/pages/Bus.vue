@@ -1,7 +1,14 @@
 <template>
   <div class="container">
     <div class="bus-header">
-      <van-search  shape="round" background="#fff" placeholder="请输入搜索关键词"/>
+      <router-link to="/index" tag="span">
+        <input type="button" value="<" />
+      </router-link>
+      <van-search
+        shape="round"
+        background="#fff"
+        placeholder="请输入搜索关键词"
+      />
     </div>
     <div class="bus-content">
       <div class="collection">
@@ -163,6 +170,15 @@ export default {
   height: 0.53rem;
   width: 100%;
   background-color: #f5f5f5;
+  position: relative;
+}
+.bus-header input {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  color: #888;
+  top: 18px;
+  font-size: 20px;
 }
 .bus-content {
   flex: 1;
@@ -206,15 +222,15 @@ export default {
   padding-top: 0.14rem;
 }
 .bus-content .station h5 span {
-    color: #347afe;
-    font-size: 0.1rem;
-    display: inline-block;
-    width: 0.45rem;
-    height: 0.18rem;
-    border: 0.01rem solid #347afe;
-    margin-left: 0.1rem;
-    font-size: 0.1rem;
-    border-radius: 0.03rem;
+  color: #347afe;
+  font-size: 0.1rem;
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.18rem;
+  border: 0.01rem solid #347afe;
+  margin-left: 0.1rem;
+  font-size: 0.1rem;
+  border-radius: 0.03rem;
 }
 .bus-content .station h5 b {
   color: #ababab;

@@ -1,32 +1,32 @@
 <template>
   <div>
-    <Loginheader/>
+    <Loginheader />
     <!-- <Tologinortoregister/> -->
-    <Tologin/>
-    <Wechatorqq/>
-    <Loginorregbottom/>
+    <Tologin />
+    <Wechatorqq />
+    <Loginorregbottom />
   </div>
 </template>
 
 <script>
-import Loginheader from '../components/Loginheader'
-import Tologin from '../components/Tologin'
-import Wechatorqq from '../components/Wechatorqq'
-import Loginorregbottom from '../components/Loginorregbottom'
-
+import Loginheader from "../components/Loginheader";
+import Tologin from "../components/Tologin";
+import Wechatorqq from "../components/Wechatorqq";
+import Loginorregbottom from "../components/Loginorregbottom";
 
 export default {
-  name: 'Loginorreg',
+  name: "Loginorreg",
   components: {
-    Loginheader,Tologin,Wechatorqq,Loginorregbottom
+    Loginheader,
+    Tologin,
+    Wechatorqq,
+    Loginorregbottom,
   },
-  data(){
-    return{
-    }
-  }
-}
+  data() {
+    return {};
+  },
+};
 </script>
 
 <style scope>
-   
 </style>

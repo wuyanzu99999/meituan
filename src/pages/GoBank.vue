@@ -13,8 +13,8 @@
             <span class="iconfont iconshezhi"></span>
           </li>
         </ul>
-        <p>{{username}}</p>
-        <p>{{17739940125}}</p>
+        <p>{{ username }}</p>
+        <p>{{ 17739940125 }}</p>
       </div>
       <div class="banked-hbottom">
         <p>为了您的资金安全,请实名认证</p>
@@ -170,7 +170,7 @@ export default {
   components: {},
   data() {
     return {
-      username:""
+      username: "",
     };
   },
   created() {

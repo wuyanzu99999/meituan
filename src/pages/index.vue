@@ -1,12 +1,12 @@
 <template>
-    <div id="app">
-      <Header class="header"/>
-      <TopNav class="topNav"/>
-      <!-- <CenterNav class="centerNav"/> -->
-      <FontList class="fontList"/>
-      <NavFont class="NavFont"/>
-      <FooterNav class="footer"/>
-    </div>
+  <div id="app">
+    <Header class="header" />
+    <TopNav class="topNav" />
+    <!-- <CenterNav class="centerNav"/> -->
+    <FontList class="fontList" />
+    <NavFont class="NavFont" />
+    <FooterNav class="footer" />
+  </div>
 </template>
 
 <script>
@@ -18,38 +18,38 @@ import FontList from "../components/index-fontList";
 import FooterNav from "../components/index-footerNav";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Header,
     TopNav,
     // CenterNav,
     NavFont,
     FontList,
-    FooterNav
-  }
-}
+    FooterNav,
+  },
+};
 </script>
 
 <style scoped>
-#app{
-    overflow: hidden;
-    position: relative;
+#app {
+  overflow: hidden;
+  position: relative;
 }
-.header{
-  position: fixed; 
+.header {
+  position: fixed;
   z-index: 2;
 }
-.topNav{
+.topNav {
   margin-top: 40px;
 }
-.fontList{
-  border-bottom: 1px rgba(226, 226, 226, 0.8)  solid;
+.fontList {
+  border-bottom: 1px rgba(226, 226, 226, 0.8) solid;
 }
-.NavFont{
+.NavFont {
   margin-bottom: 50px;
 }
-.footer{
-  position: fixed; 
+.footer {
+  position: fixed;
   bottom: 0;
 }
 </style>

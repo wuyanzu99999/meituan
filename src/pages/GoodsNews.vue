@@ -21,7 +21,7 @@
 
     <!-- FoodsNews -->
     <div class="GoodsNews-foods">
-      <h4>{{goodsnews.goodsname}}</h4>
+      <h4>{{ goodsnews.goodsname }}</h4>
       <ul>
         <li>
           <p>一人份</p>
@@ -29,12 +29,14 @@
         </li>
         <li>月销4775</li>
         <li>
-          <span>￥{{goodsnews.goodprice}} &nbsp; &nbsp; </span><del>￥28</del>打包费&nbsp;&nbsp;
-          ￥1.0/1份
+          <span>￥{{ goodsnews.goodprice }} &nbsp; &nbsp; </span
+          ><del>￥28</del>打包费&nbsp;&nbsp; ￥1.0/1份
         </li>
         <li><span></span>4.96折&nbsp;| &nbsp;限30份</li>
       </ul>
-      <div class="GoodsNews-foodscar">+加入购物车</div>
+      <div class="GoodsNews-foodscar" @click="addCart(goodsnews.id)">
+        +加入购物车
+      </div>
     </div>
 
     <!-- FoodsDescribe -->
@@ -115,7 +117,7 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   name: "GoodsNews",
   components: {},
@@ -125,14 +127,26 @@ export default {
       goodsId: this.$route.params.id,
     };
   },
+  //请求商品详情
   created() {
     console.log(this.goodsId);
-    axios.get("/api/goods/selectGoodsByGoodsId?goodsid=" + this.goodsId, {
-      })
+    axios
+      .get("/api/goods/selectGoodsByGoodsId?goodsid=" + this.goodsId, {})
       .then((res) => {
         console.log("res", res.data);
         this.goodsnews = res.data.data;
       });
+  },
+  //添加购物车
+  methods: {
+    addCart() {
+      axios
+        .get("/api/goods/selectGoodsByGoodsId?goodsid=" + this.goodsId, {})
+        .then((res) => {
+          console.log("res", res.data);
+          this.goodsnews = res.data.data;
+        });
+    },
   },
 };
 </script>

@@ -1,6 +1,9 @@
 <template>
     <div class="container">
         <div class="banner">
+            <router-link to="/index" tag="span">
+                <span></span>
+            </router-link>
             <img src="../../public/img/ticket/top-banner.jpg" alt="">
         </div>
         <div class="note">
@@ -155,6 +158,15 @@ export default {
     position: relative;
 
 }
+.banner span{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    left: 17px;
+    top: 10px;
+    /* background-color: red; */
+}
+
 .banner img{
     width: 100%;
     height: 100%;

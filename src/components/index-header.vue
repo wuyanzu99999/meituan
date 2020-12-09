@@ -60,7 +60,7 @@ export default {
 
 }
 .box .icon-magnifier{
-    right: 266px;
+    left: 20%;
     font-size: 22px;
     top: 7px;
 }

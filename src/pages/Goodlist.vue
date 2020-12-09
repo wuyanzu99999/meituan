@@ -1,29 +1,27 @@
 <template>
   <div>
-    <goodsBanner /> 
+    <goodsBanner />
     <goodslist />
-    <footeraa class='bottom-box'/>
+    <footeraa class="bottom-box" />
   </div>
 </template>
 
 <script>
-
-import goodsBanner from "../components/goodsBanner"
-import goodslist from "../components/goodslist"
-import footeraa from "../components/footer"
+import goodsBanner from "../components/goodsBanner";
+import goodslist from "../components/goodslist";
+import footeraa from "../components/footer";
 
 export default {
-  name: 'Goodlist',
+  name: "Goodlist",
   components: {
     goodsBanner,
     footeraa,
-    goodslist
+    goodslist,
   },
-  data(){
-    return {
-    }
-  }
-}
+  data() {
+    return {};
+  },
+};
 </script>
 
 <style scoped>
@@ -34,15 +32,14 @@ export default {
   left:0;
 } */
 
-.center-box{
-  margin-top:0.5rem;
-  margin-bottom:0.5rem; 
+.center-box {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.bottom-box{
+.bottom-box {
   position: fixed;
-  bottom:0;
-  left:0;
+  bottom: 0;
+  left: 0;
 }
-
 </style>

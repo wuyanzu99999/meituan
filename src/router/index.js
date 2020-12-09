@@ -42,7 +42,10 @@ let routes = [{
     },
     {
         path: "/vip",
-        component: Vip
+        component: Vip,
+        meta: {
+            requireAuth: true
+        }
     },
     {
         path: "/recharge",
@@ -58,7 +61,10 @@ let routes = [{
     },
     {
         path: "/goBank",
-        component: GoBank
+        component: GoBank,
+        meta: {
+            requireAuth: true
+        }
     },
     {
         path: "/ticket",
@@ -89,7 +95,10 @@ let routes = [{
     },
     {
         path: "/order",
-        component: Order
+        component: Order,
+        meta: {
+            requireAuth: true
+        }
     },
     {
         path: "/ktv",
