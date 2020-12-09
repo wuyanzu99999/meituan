@@ -1,0 +1,86 @@
+{
+  "id": "2229464",
+  "name": "美团index",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2203",
+      "name": "美发",
+      "font_class": "meifa",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "979444",
+      "name": "付款",
+      "font_class": "sweep",
+      "unicode": "e6c4",
+      "unicode_decimal": 59076
+    },
+    {
+      "icon_id": "1115036",
+      "name": "福利",
+      "font_class": "fuli",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "7629041",
+      "name": "电影",
+      "font_class": "dianying",
+      "unicode": "e6af",
+      "unicode_decimal": 59055
+    },
+    {
+      "icon_id": "7843634",
+      "name": "美食",
+      "font_class": "fenzu",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "11195056",
+      "name": "娱乐",
+      "font_class": "yule",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "11195064",
+      "name": "自行车",
+      "font_class": "zihangche",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "13608499",
+      "name": "酒店",
+      "font_class": "jiudian",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "13972741",
+      "name": "火车票",
+      "font_class": "huochepiao",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "14033388",
+      "name": "借钱",
+      "font_class": "jieqian",
+      "unicode": "e71f",
+      "unicode_decimal": 59167
+    },
+    {
+      "icon_id": "18166589",
+      "name": "美团外卖",
+      "font_class": "meituan",
+      "unicode": "e8c9",
+      "unicode_decimal": 59593
+    }
+  ]
+}

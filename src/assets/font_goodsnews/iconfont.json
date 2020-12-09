@@ -1,0 +1,86 @@
+{
+  "id": "2245062",
+  "name": "meituan",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1365872",
+      "name": "红包",
+      "font_class": "hongbao",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "5491172",
+      "name": "小辣椒",
+      "font_class": "xiaolajiao",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "6299121",
+      "name": "不赞",
+      "font_class": "buzan",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "6965799",
+      "name": "06下尖括号",
+      "font_class": "xiajiankuohao",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "10189570",
+      "name": "点赞",
+      "font_class": "dianzan1",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "14007435",
+      "name": "消 息",
+      "font_class": "xiaoxi-copy",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "14134538",
+      "name": "人工客服",
+      "font_class": "rengongkefu",
+      "unicode": "e7a6",
+      "unicode_decimal": 59302
+    },
+    {
+      "icon_id": "10507806",
+      "name": "错误 (1)",
+      "font_class": "cuowu",
+      "unicode": "e69f",
+      "unicode_decimal": 59039
+    },
+    {
+      "icon_id": "1049469",
+      "name": "qq",
+      "font_class": "qq1",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "10352143",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "11927048",
+      "name": "眼睛",
+      "font_class": "yanjing",
+      "unicode": "e6e3",
+      "unicode_decimal": 59107
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1606907767941'); /* IE9 */
+  src: url('iconfont.eot?t=1606907767941#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAPAAAsAAAAAB+AAAANyAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDHAqDIIJ/ATYCJAMQCwoABCAFhG0HQRvqBsgOJUHBkMDgAQNABF9rn/1m5+/NAYPEAIBKeSKho4FkhEr5SDYGyLNM+Zu3zj7T1GvlSyu6SKapXzptv3kTcKaKb9942ovDadMm4Hyr7bI2jTWpzqMuwHhrYGMPoEALJPeW4bUuhYNeT6DFhKm4o5X17UAuI90CcZfyKiDP6OSGzFCEumJsFs+BREkPRHcAz4Lvxz+pISdpVEjfi9crtKD4Z/ynbXD+yHz9HgJIprNAnkSFNUAmblbaLoNRbA3UYjYW2wQURWKqmt5P20ZGsPQo6kLtpMF/XtRIehtYh3jFz3jOIPGzV1yl2QbSB1grg4Ia9wGvENwY8QW/U+dQXKB/nNOzut21sMP9tqujqNP7rPukq/rGytpbntTTC9LOeOtur6q56U45Nd8CfB6tm79WqXy4fsEGH5/4/LnTx/2pw+vt8nF97MwooSp07iya73rg6tvtqbziQqJd7orr3jGz9h2KEvk9OjT/4Fhf0YuDKw9zsO3l4QVHfPwqN/zzopNlMRJzZnEy0yS5Ex85MroPdsonVSTsUKm+epdc/++Td8xeMmc7+f/1Jd6vI7bPWQKiTmZE+/wa+OWjE/tHZ6gVa+aEDqeHt8xTt4N2SBAp0rOCYp/Z/Q0cwVyDmDvLk3pXwUkC6CMeF1OSVhI9cElWU2O1cqNMHD4WTP7fi6A3gxxjHEB3E/CzfJCOAjJLgigNIsAKYMcFj8KpovkNRFQIiWvwMsz/h79x6PW2RUMB+b+LTwY/fm50gmfnmhh004AfIeks+WOSjjnZkhF9zoaci+1B2R4QJLRQI/8pRY9XUzj6gcQSiiIBSJqMQ6WYQ2bsGjS0WodacQBarKqa3KoXA0VuxoolCEKXE5B0+ACVLneRGfsSGgb8hFpXQGhxKULmbLUQVFnGsErAWqSegajGYibMKCjDzFbM240qlpYF5E7MbDSIUhKT88kqbMZsigE2B58qCAQRZjGhSrQZNhotyMoseqwREnWCYM1NSiJVL0rUWExA6QgGUxFgWojaDAilYWFGvMICZeHzrTCenZEKa8hq8nfCGBtaP5IiUXIHZJXa3CnrVi6xceClEggIhGAsTJBKZMGMNGaBWKtb6WEagkS6ARGrXEk4H+mqTlxea3rDRdCCHJ0jRRU5GprvqXgzJRQzyQz7DGqGeqoCAAAA') format('woff2'),
+  url('iconfont.woff?t=1606907767941') format('woff'),
+  url('iconfont.ttf?t=1606907767941') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1606907767941#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-magnifier:before {
+  content: "\e69d";
+}
+
+.icon-yuyin:before {
+  content: "\e61e";
+}
+
+.icon-jia:before {
+  content: "\e65a";
+}
+
