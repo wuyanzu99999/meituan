@@ -177,14 +177,13 @@ export default {
     // console.log(22);
     axios.get("/api/user/findOneById?id=1", {}).then((res) => {
       this.username = res.data.data.username;
-      //   console.log(res.data.data);
+        console.log("gobank页面发送请求成功后返回的数据",this.username);
     });
   },
 };
 </script>
 <style  scoped>
 /* 头部 */
-
 @import url("../assets/font_gobank/iconfont.css");
 .banked-header {
   background-color: #eeeeee;

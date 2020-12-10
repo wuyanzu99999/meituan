@@ -73,16 +73,14 @@ export default {
   name: "Header",
   data() {
     return {
-      isShow: sessionStorage.getItem("username"),
-      // isShow: true,
+      isShow: sessionStorage.getItem("userid"),
       username:""
     };
   },
   created() {
-    // console.log(22);
-    axios.get("/api/user/findOneById?id=1", {}).then((res) => {
+    axios.get("/api/user/findOneById?id="+this.userid, {}).then((res) => {
         this.username=res.data.data.username;
-    //   console.log(res.data.data);
+      console.log('根据sessionStorge中的userid来查询对应的username',this.username);
     });
   },
 };

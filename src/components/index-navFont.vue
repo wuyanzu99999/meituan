@@ -160,8 +160,7 @@ export default {
   },
   created() {
     axios.get("/api/shop/findAll", {}).then((res) => {
-      console.log(res.data);
-      console.log(res.data[1])
+      console.log("查询出来的所有店家信息",res.data);
     });
   },
 }

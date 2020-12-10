@@ -38,11 +38,11 @@ export default {
   },
       created(){
         axios.get("/api/goods/selectGoodsByShopId?shopid="+this.shopId,{
-        //    data:"shopid="+this.shopId,
+          //  data:"shopid="+this.shopId,
         })
         .then(res=>{
-            console.log("res",res.data);
-            this.goods = res.data.data;
+            console.log("根据商铺ID查询出来的商家信息",res.data);
+            this.goods = res.data;
         });               
     },
 }

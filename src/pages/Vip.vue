@@ -86,7 +86,7 @@ export default {
     console.log(22);
     axios.get("/api/user/findOneById?id=1", {}).then((res) => {
       this.username = res.data.data.username;
-      //   console.log(res.data.data);
+        console.log("会员中心返回的商品信息",this.username);
     });
   },
 };

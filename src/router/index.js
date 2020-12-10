@@ -115,7 +115,7 @@ let router = new VueRouter({
 //     // 进入购物车和我的，必须要登录
 //     if (to.meta.requireAuth) {
 //         // if(是否登录){
-//         if (sessionStorage.getItem("username")) {
+//         if (sessionStorage.getItem("userid")) {
 //             next();
 //         } else {
 //             Dialog.confirm({

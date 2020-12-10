@@ -65,7 +65,7 @@
 </template>
 
 <script>
-
+import axios from 'axios'
 export default {
   name: 'Ktv',
   components: {
@@ -75,6 +75,11 @@ export default {
     return{
 		
     }
+  },
+  created(){
+	    axios.get("/api/shop/findAll", {}).then((res) => {
+      console.log("查询出来的所有店家信息",res.data);
+    });  
   }
 }
 </script>

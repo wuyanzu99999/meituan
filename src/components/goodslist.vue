@@ -58,11 +58,11 @@ export default {
     },
     created(){
         axios.get("/api/goods/selectGoodsByShopId?shopid="+this.shopId,{
-        //    data:"shopid="+this.shopId,
         })
         .then(res=>{
             console.log("res",res.data);
             this.goods = res.data.data;
+            console.log("根据商铺id查询出来的商家商品信息",this.goods);
         });               
     },
     mounted(){

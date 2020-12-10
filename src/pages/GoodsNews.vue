@@ -135,6 +135,7 @@ export default {
       .then((res) => {
         console.log("res", res.data);
         this.goodsnews = res.data.data;
+        console.log("用商品ID查询商品详细信息之后返回数据",this.goodsnews);
       });
   },
   //添加购物车
@@ -144,7 +145,9 @@ export default {
         .get("/api/goods/selectGoodsByGoodsId?goodsid=" + this.goodsId, {})
         .then((res) => {
           console.log("res", res.data);
-          this.goodsnews = res.data.data;
+          // this.goodsnews = res.data.data;
+         console.log("购物车添加商品成功之后返回的数据",res);
+
         });
     },
   },

@@ -88,7 +88,8 @@ export default {
     console.log(22);
     axios.get("/api/user/findOneById?id=1", {}).then((res) => {
       this.username = res.data.data.username;
-      //   console.log(res.data.data);
+        console.log("充值页面返回的用户信息",this.username);
+
     });
   },
 };

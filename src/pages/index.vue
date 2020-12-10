@@ -8,7 +8,6 @@
     <FooterNav class="footer" />
   </div>
 </template>
-
 <script>
 import Header from "../components/index-header";
 import TopNav from "../components/index-topNav";
@@ -16,7 +15,6 @@ import TopNav from "../components/index-topNav";
 import NavFont from "../components/index-navFont";
 import FontList from "../components/index-fontList";
 import FooterNav from "../components/index-footerNav";
-
 export default {
   name: "App",
   components: {
