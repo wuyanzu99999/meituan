@@ -185,12 +185,23 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: "Order",
   components: {},
   data() {
     return {};
   },
+  created(){
+	axios.get("/api/order/findAll", {
+	}).then(res => {
+		this.order = res.data.data;
+		this.order.forEach(item => {
+			item.ktvimg= "./img/ktv/"+item.ktvimg;
+			console.log(item.ktvimg);
+		});
+	});
+  }
 };
 </script>
 

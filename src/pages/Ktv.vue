@@ -2,9 +2,6 @@
   <div>
     <!-- top -->
     <div class="ktv-top">
-      <router-link to="/index" tag="span">
-        <input type="button" value="<" class="back" />
-      </router-link>
       <van-search
         class="ktv-top-content"
         v-model="value"
@@ -17,12 +14,12 @@
     <!-- banner -->
     <div class="ktv-banner">
       <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-        <van-swipe-item
-          ><img src="../../public/img/ktv/banner1.jpg" alt=""
-        /></van-swipe-item>
-        <van-swipe-item
-          ><img src="../../public/img/ktv/banner2.jpg" alt=""
-        /></van-swipe-item>
+        <van-swipe-item>
+          <img src="../../public/img/ktv/banner1.jpg" alt />
+        </van-swipe-item>
+        <van-swipe-item>
+          <img src="../../public/img/ktv/banner2.jpg" alt />
+        </van-swipe-item>
       </van-swipe>
     </div>
     <!-- list-type -->
@@ -37,28 +34,29 @@
         <p>人数</p>
       </div>
     </div>
-
-    <div class="ktv">
-      <div class="ktv-l">
-        <img src="../../public/img/ktv/ktv.jpg" alt="" />
-      </div>
-      <div class="ktv-r">
-        <h6>奈斯KTV</h6>
-        <div class="ktv-r-msg">
-          <img src="../../public/img/ktv/star.jpg" alt="" />
-          <span>0.6km</span>
+    <div v-for="(ktv, index) in ktvs" :key="index">
+      <div class="ktv">
+        <div class="ktv-l">
+          <img :src="ktv.ktvimg" alt="" />
         </div>
-        <div class="ktv-r-msg">
-          <p>丈八&nbsp;&nbsp;|&nbsp;&nbsp;量贩式KTV</p>
-          <b>1小时前有人购买</b>
-        </div>
-        <div class="ktv-r-recommend">
-          <img src="../../public/img/ktv/qipao.jpg" alt="" />
-          <p>强烈推荐，音质很棒，价格实惠，可以来呦</p>
-        </div>
-        <div class="ktv-r-last">
-          <img src="../../public/img/ktv/ding.jpg" alt="" />
-          <p>大包3小时欢唱598元</p>
+        <div class="ktv-r">
+          <h6>{{ ktv.ktvname }}</h6>
+          <div class="ktv-r-msg">
+            <img src="../../public/img/ktv/star.jpg" alt />
+            <span>0.6km</span>
+          </div>
+          <div class="ktv-r-msg">
+            <p>丈八&nbsp;&nbsp;|&nbsp;&nbsp;量贩式KTV</p>
+            <b>1小时前有人购买</b>
+          </div>
+          <div class="ktv-r-recommend">
+            <img src="../../public/img/ktv/qipao.jpg" alt />
+            <p>强烈推荐，音质很棒，价格实惠，可以来呦</p>
+          </div>
+          <div class="ktv-r-last">
+            <img src="../../public/img/ktv/ding.jpg" alt />
+            <p>大包3小时欢唱598元</p>
+          </div>
         </div>
       </div>
     </div>
@@ -66,15 +64,28 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Ktv",
   components: {},
   data() {
-    return {};
+    return {
+      ktvs: [],
+      value:""
+    };
+  },
+  created() {
+    axios.get("/api/ktv/findAll", {}).then((res) => {
+      this.ktvs = res.data.data;
+      this.ktvs.forEach((item) => {
+        item.ktvimg = "./img/ktv/" + item.ktvimg;
+        console.log(item.ktvimg);
+      });
+    });
   },
 };
 </script>
-
 <style scope>
 .ktv-top {
   width: 100%;
@@ -83,14 +94,6 @@ export default {
   position: fixed;
   top: 0;
   z-index: 999;
-}
-.ktv-top .back {
-  position: absolute;
-  border: none;
-  background-color: transparent;
-  color: #888;
-  top: 9px;
-  font-size: 17px;
 }
 .ktv-top,
 .ktv-top-content {

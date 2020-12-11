@@ -56,7 +56,7 @@ let routes = [{
     },
     {
         path: "/goodsNews/:id",
-        name:'goodsnews',
+        name: 'goodsnews',
         component: GoodsNews
     },
     {

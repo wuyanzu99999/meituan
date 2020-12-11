@@ -2,6 +2,7 @@
   <div>
     <!-- GoodsHeader -->
     <div class="GoodsNews-header">
+      <img :src="goodsnews.image" alt="" style="width: 100%; height: 100%" />
       <div class="GNheader-top">
         <span class="iconfont iconxiajiankuohao"></span>
         <span class="iconfont iconrengongkefu"></span>
@@ -125,6 +126,7 @@ export default {
     return {
       goodsnews: {},
       goodsId: this.$route.params.id,
+      shopId: this.$route.params.shopId,
     };
   },
   //请求商品详情
@@ -135,19 +137,32 @@ export default {
       .then((res) => {
         console.log("res", res.data);
         this.goodsnews = res.data.data;
-        console.log("用商品ID查询商品详细信息之后返回数据",this.goodsnews);
+        // console.log("用商品ID查询商品详细信息之后返回数据", this.goodsnews);/
+        this.goodsnews.image = "./img/" + this.goodsnews.image;
+        console.log(this.goodsnews.image);
       });
   },
   //添加购物车
   methods: {
     addCart() {
+      console.log(sessionStorage.getItem("userid"));
+      console.log(this.shopId);
+      console.log(this.goodsId);
       axios
-        .get("/api/goods/selectGoodsByGoodsId?goodsid=" + this.goodsId, {})
+        .post("/api/cart/insert", {
+          uid: sessionStorage.getItem("userid"),
+          shopid: this.shopId,
+          gid: this.goodsId,
+          // uid: 12,
+          // shopid: 12,       
+          // gid: 1,
+          goodnumber: 1,
+          goodprice: this.goodsnews.goodprice,
+        })
         .then((res) => {
           console.log("res", res.data);
           // this.goodsnews = res.data.data;
-         console.log("购物车添加商品成功之后返回的数据",res);
-
+          console.log("购物车添加商品成功之后返回的数据", res);
         });
     },
   },
@@ -218,7 +233,7 @@ export default {
   margin-top: 0.08rem;
 }
 .GoodsNews-foods li p {
-  width: 0.3rem;
+  width: 0.4rem;
   height: 0.13rem;
   font-size: 0.09rem;
   background-color: #d3d3d3;

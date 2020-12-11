@@ -92,8 +92,9 @@ export default {
         })
         .then((res) => {
           if (res.data.code == 200) {
-            this.$router.push("({path:this.$route.query.toPath}");
-            sessionStorage.setItem("userid", res.data.id); //保存后端返回的data 中的userid到session中
+            // this.$router.push("{{path:this.$route.query.toPath}}");
+            this.$router.push("/index");
+            sessionStorage.setItem("userid", res.data.data.id); //保存后端返回的data 中的userid到session中
             console.log(sessionStorage);
           } else if (res.data.message == "登录失败") {
             Notify({
@@ -105,16 +106,6 @@ export default {
           console.log(res.data);
         });
     },
-  },
-  created() {
-    if (!this.flagname) {
-      console.log(123);
-      Notify({
-        message: "用户名或者密码错误！",
-        color: "#333",
-        background: "#ffd101",
-      });
-    }
   },
 };
 </script>

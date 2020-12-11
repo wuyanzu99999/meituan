@@ -11,38 +11,40 @@
         <div class="address-con">
           <div class="address-con-title">
             <span class="take-out">外卖配送</span>
-            <span class="store">到店自取<span>快15分钟</span></span>
+            <span class="store">
+              到店自取
+              <span>快15分钟</span>
+            </span>
           </div>
           <h2>
             选择收获地址
             <input type="button" value=">" />
           </h2>
           <p>
-            立即送出 <span>大约15:56送达</span>
+            立即送出
+            <span>大约15:56送达</span>
             <input type="button" value=">" />
           </p>
         </div>
       </div>
       <div class="wrapper">
         <div class="wrapper-con">
-          <h5>千味一锅.香锅冒菜 <span>美团快送</span></h5>
+          <h5>
+            千味一锅.香锅冒菜
+            <span>美团快送</span>
+          </h5>
           <table class="cart-list">
             <tr v-for="(goods, index) in goodslist" :key="index">
               <td>
-                <img src="" alt="" />
+                <img src alt />
               </td>
               <td>
-                <div class="title">{{ goods.name }}</div>
+                <div class="title">{{ goods.goodsname }}</div>
                 <div class="info">{{ goods.info }}</div>
               </td>
-              <td>￥{{ goods.price }}</td>
+              <td>￥{{ goods.goodprice }}</td>
               <td>
-                <input
-                  type="button"
-                  value="-"
-                  @click="reduce(index)"
-                  :disabled="goods.count <= 0"
-                />
+                <input type="button" value="-" @click="reduce(index)" :disabled="goods.count <= 0" />
                 {{ goods.count }}
                 <input
                   type="button"
@@ -51,16 +53,17 @@
                   :disabled="goods.count <= 0"
                 />
               </td>
-              <td>
-                {{ goods.count * goods.price }}
-              </td>
+              <td>{{ goods.count * goods.price }}</td>
               <td>
                 <input type="button" value="x" @click="delGoods(index)" />
               </td>
             </tr>
           </table>
           <ul class="detail">
-            <li>打包费 <b>￥2</b></li>
+            <li>
+              打包费
+              <b>￥2</b>
+            </li>
             <li>
               配送费
               <span class="text">已减2.5元配送费</span>
@@ -92,12 +95,16 @@
             <div class="total-price">
               <div class="rule">
                 优惠规则
-                <img src="../../public/img/cart/protect-02.jpg" alt="" />
+                <img src="../../public/img/cart/protect-02.jpg" alt />
               </div>
               <div class="ticket">
-                <span> 已优惠<b>￥17.6</b> </span>
                 <span>
-                  小计￥<b>{{ totalPrice() }}</b>
+                  已优惠
+                  <b>￥17.6</b>
+                </span>
+                <span>
+                  小计￥
+                  <b>{{ totalPrice() }}</b>
                 </span>
               </div>
             </div>
@@ -108,17 +115,18 @@
         <div class="pro-con">
           <div class="pro-title">
             <span class="pro-tel">
-              <img src="../../public/img/cart/protect-01.jpg" alt="" />
+              <img src="../../public/img/cart/protect-01.jpg" alt />
               号码保护
-              <img src="../../public/img/cart/protect-02.jpg" alt="" />
+              <img src="../../public/img/cart/protect-02.jpg" alt />
             </span>
-            <span class="pro-pri"
-              >号码隐私保护中
-              <img src="../../public/img/cart/protect-03.jpg" alt="" />
+            <span class="pro-pri">
+              号码隐私保护中
+              <img src="../../public/img/cart/protect-03.jpg" alt />
             </span>
           </div>
           <p>
-            对商家、骑手隐藏您的真实手机号保护您的隐私<br />为保障服务质量，开启号码保护的订单童话可能会被录音
+            对商家、骑手隐藏您的真实手机号保护您的隐私
+            <br />为保障服务质量，开启号码保护的订单童话可能会被录音
           </p>
         </div>
       </div>
@@ -134,7 +142,7 @@
           </li>
           <li>
             <b>发票</b>
-            <span> 该店不支持线上开票，请联系商户 </span>
+            <span>该店不支持线上开票，请联系商户</span>
           </li>
         </ul>
       </div>
@@ -147,7 +155,7 @@
         </div>
         <input type="button" value="找人付" />
         <router-link to="order">
-          <input type="button" value="提交订单" />
+          <input type="button" value="提交订单" @click="getOrder"/>
         </router-link>
       </div>
     </div>
@@ -155,56 +163,36 @@
 </template>
 <script>
 import axios from "axios";
-// import Vue from 'vue';
-import { Dialog } from 'vant';
+import { Dialog } from "vant";
 export default {
   name: "Cart",
   data() {
     return {
-      goodslist: [
-        {
-          img: "../../public/img/cart/cart-con-01.jpg",
-          name: "麻辣香锅",
-          info: "中麻辣",
-          count: 10,
-          price: 20,
-        },
-        {
-          img: "../../public/img/cart/cart-con-02.jpg",
-          name: "红烧牛肉面你喜欢吗",
-          info: "中麻辣",
-          count: 3,
-          price: 14,
-        },
-        {
-          img: "../../public/img/cart/cart-con-03.jpg",
-          name: "红烧鱼",
-          info: "中麻辣",
-          count: 2,
-          price: 10,
-        },
-      ],
-      userId: sessionStorage.getItem("userId"),
+      goodslist: [],
+      userId: sessionStorage.getItem("userId")
     };
   },
   created() {
-    axios({
-      url: "/goodslist",
-    }).then((res) => {
-      console.log("res.data", res.data);
-      this.goodslist = res.data;
+    // console.log(this.userId);
+    axios.get("/api/personCart/findCartByUid", {}).then(res => {
+      this.goodslist = res.data.data;
+      console.log("goodsnews", "res", res.data.data);
     });
   },
-  //   created() {
-  //     console.log(this.userId);
-  //     axios
-  //       .get("/api/goods/selectGoodsByGoodsId?goodsid=" + this.userId, {})
-  //       .then((res) => {
-  //         console.log("res", res.data);
-  //         this.goodslist = res.data.data;
-  //       });
-  //   },
   methods: {
+    getOrder() {
+      axios
+        .post("/api/order/insertOrder/", {
+          uid: 13,
+          shopid: 13,
+          gid: 1,
+          goodsnumber: 1,
+          price: 13
+        })
+        .then(res => {
+          console.log("res", res.data.data);
+        });
+    },
     reduce(index) {
       this.goodslist[index].count--;
     },
@@ -213,22 +201,22 @@ export default {
     },
     totalPrice() {
       let money = 0;
-      this.goodslist.forEach((item) => {
+      this.goodslist.forEach(item => {
         money += item.price * item.count;
       });
       return money;
     },
     delGoods(index) {
       Dialog.confirm({
-        title: "亲,您要删除该商品吗？",
+        title: "亲,您要删除该商品吗？"
         // message: "弹窗内容",
       })
         .then(() => {
           this.goodslist.splice(index, 1);
         })
         .catch(() => {});
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>

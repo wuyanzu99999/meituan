@@ -73,15 +73,20 @@ export default {
   },
   data(){
     return{
-		
+		ktvs:[],
+		value:""
     }
   },
   created(){
 	    axios.get("/api/shop/findAll", {}).then((res) => {
-      console.log("查询出来的所有店家信息",res.data);
+		this.ktvs = res.data.data;
+		this.ktvs.forEach(item => {
+			item.ktvimg= "./img/ktv/"+item.ktvimg;
+			console.log(item.ktvimg);
+    //   console.log("查询出来的所有店家信息",res.data);
     });  
   }
-}
+
 </script>
 
 <style scope>
