@@ -24,7 +24,7 @@
         <span class="iconfont icon-comment-w"></span>
       </li>
       <li>
-        <span class="iconfont icon-zuji"></span>
+        <span class="iconfont icon-qiche"></span>
       </li>
       <li>
         <span class="iconfont icon-kabao"></span>
@@ -185,7 +185,7 @@ export default {
   font-size: 26px;
 }
 
-.header #font-ul .icon-zuji {
+.header #font-ul .icon-qiche{
   font-size: 26px;
 }
 

@@ -190,16 +190,16 @@ export default {
   name: "Order",
   components: {},
   data() {
-    return {};
+    return {
+          order:[]
+    };
+
   },
   created(){
 	axios.get("/api/order/findAll", {
 	}).then(res => {
 		this.order = res.data.data;
-		this.order.forEach(item => {
-			item.ktvimg= "./img/ktv/"+item.ktvimg;
-			console.log(item.ktvimg);
-		});
+			console.log(res.data.data);
 	});
   }
 };

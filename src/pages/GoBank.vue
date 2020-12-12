@@ -14,7 +14,6 @@
           </li>
         </ul>
         <p>{{ username }}</p>
-        <p>{{ 17739940125 }}</p>
       </div>
       <div class="banked-hbottom">
         <p>为了您的资金安全,请实名认证</p>
@@ -167,15 +166,15 @@
 import axios from "axios";
 export default {
   name: "GoBank",
-  components: {},
   data() {
     return {
       username: "",
+      userId:sessionStorage.getItem("userId")
     };
   },
   created() {
     // console.log(22);
-    axios.get("/api/user/findOneById?id=1", {}).then((res) => {
+    axios.get("/api/user/findOneById?id="+this.userId, {}).then((res) => {
       this.username = res.data.data.username;
         console.log("gobank页面发送请求成功后返回的数据",this.username);
     });

@@ -106,16 +106,6 @@ export default {
         });
     },
   },
-  created() {
-    if (!this.flagname) {
-      console.log(123);
-      Notify({
-        message: "用户名或者密码错误！",
-        color: "#333",
-        background: "#ffd101",
-      });
-    }
-  },
 };
 </script>
 

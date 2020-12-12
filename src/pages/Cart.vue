@@ -1,6 +1,8 @@
 <template>
   <div class="container">
     <div class="header">
+      {{$route.params.shopId}}
+      {{$route.params.goodsId}}
       <router-link to="goodslist/1" tag="div">
         <input type="button" value="<" />
         提交订单
@@ -34,26 +36,26 @@
             <span>美团快送</span>
           </h5>
           <table class="cart-list">
-            <tr v-for="(goods, index) in goodslist" :key="index">
+            <tr>
               <td>
                 <img src alt />
               </td>
               <td>
-                <div class="title">{{ goods.goodsname }}</div>
-                <div class="info">{{ goods.info }}</div>
+                <div class="title">{{ goodslist.goodsname }}</div>
+                <div class="info">{{ goodslist.shopname }}</div>
               </td>
-              <td>￥{{ goods.goodprice }}</td>
+              <td>￥{{ goodslist.goodprice/goodslist.goodnumber }}</td>
               <td>
-                <input type="button" value="-" @click="reduce(index)" :disabled="goods.count <= 0" />
-                {{ goods.count }}
+                <input type="button" value="-" @click="reduce(index)" :disabled="goodslist.goodnumber  <= 0" />
+                {{ goodslist.goodnumber }}
                 <input
                   type="button"
                   value="+"
                   @click="add(index)"
-                  :disabled="goods.count <= 0"
+                  :disabled="goodslist.goodnumber  <= 0"
                 />
               </td>
-              <td>{{ goods.count * goods.price }}</td>
+              <td>{{ goodslist.goodprice}}</td>
               <td>
                 <input type="button" value="x" @click="delGoods(index)" />
               </td>
@@ -104,7 +106,7 @@
                 </span>
                 <span>
                   小计￥
-                  <b>{{ totalPrice() }}</b>
+                  <b>{{ goodslist.goodprice}}</b>
                 </span>
               </div>
             </div>
@@ -168,7 +170,9 @@ export default {
   name: "Cart",
   data() {
     return {
-      goodslist: [],
+      goodslist: {
+        
+      },
       userId: sessionStorage.getItem("userId")
     };
   },
@@ -183,36 +187,29 @@ export default {
     getOrder() {
       axios
         .post("/api/order/insertOrder/", {
-          uid: 13,
-          shopid: 13,
-          gid: 1,
-          goodsnumber: 1,
-          price: 13
+          uid: sessionStorage.getItem("userid"),
+          shopid: this.$route.params.shopId,
+          gid: this.$route.params.goodsId,
+          goodsnumber: this.goodslist.goodnumber,
+          price:  this.goodslist.goodprice,
         })
         .then(res => {
           console.log("res", res.data.data);
         });
     },
-    reduce(index) {
-      this.goodslist[index].count--;
+    reduce() {
+      this.goodslist.count--;
     },
-    add(index) {
-      this.goodslist[index].count++;
+    add() {
+      this.goodslist.count++;
     },
-    totalPrice() {
-      let money = 0;
-      this.goodslist.forEach(item => {
-        money += item.price * item.count;
-      });
-      return money;
-    },
-    delGoods(index) {
+    delGoods() {
       Dialog.confirm({
         title: "亲,您要删除该商品吗？"
         // message: "弹窗内容",
       })
         .then(() => {
-          this.goodslist.splice(index, 1);
+          this.goodslist={};
         })
         .catch(() => {});
     }

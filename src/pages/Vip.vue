@@ -1,6 +1,21 @@
 <template>
   <div class="box">
     <div class="banner">
+      <router-link to="/my">
+        <input
+          type="button"
+          value="<"
+          style="
+            position: absolute;
+            border: none;
+            background-color: transparent;
+            color: #b1adad;
+            font-size: 26px;
+            left: 4px;
+            top: 6px;
+          "
+        />
+      </router-link>
       <img src="../../public/img/vip/head.jpg" alt="" />
       <p>{{ username }}</p>
       <p>成长值：0&nbsp;<span></span> &nbsp; 积分：0</p>
@@ -80,13 +95,14 @@ export default {
   data() {
     return {
       username: "",
+      userId:sessionStorage.getItem("userId")
     };
   },
   created() {
     console.log(22);
-    axios.get("/api/user/findOneById?id=1", {}).then((res) => {
+    axios.get("/api/user/findOneById?id="+this.userId, {}).then((res) => {
       this.username = res.data.data.username;
-        console.log("会员中心返回的商品信息",this.username);
+      console.log("会员中心返回的商品信息", this.username);
     });
   },
 };

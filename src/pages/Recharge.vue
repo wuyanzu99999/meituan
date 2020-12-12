@@ -81,12 +81,13 @@ export default {
   components: {},
   data() {
     return {
-        username:''
+        username:'',
+        userId:sessionStorage.getItem("userId")
     };
   },
   created() {
     console.log(22);
-    axios.get("/api/user/findOneById?id=1", {}).then((res) => {
+    axios.get("/api/user/findOneById?id="+this.userId, {}).then((res) => {
       this.username = res.data.data.username;
         console.log("充值页面返回的用户信息",this.username);
 

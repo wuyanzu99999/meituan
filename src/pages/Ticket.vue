@@ -353,6 +353,7 @@ export default {
     display: flex;
     justify-content: space-between;
     padding: 0 0.14rem;
+    margin-bottom: 0.7rem;
 }
 .plane .plane-left{
     padding-left:0.14rem;
@@ -386,10 +387,13 @@ export default {
     height: 100%;
 }
 .footer{
+    width: 100%;
     height: 0.53rem;
     padding: 0 0.25rem;
     display: flex;
     justify-content: space-between;
     font-size: 0.12rem;
+    line-height: 0.53rem;
+    background-color: #fff;
 }
 </style>

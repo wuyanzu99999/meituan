@@ -55,7 +55,7 @@ let routes = [{
         }
     },
     {
-        path: "/goodsNews/:id",
+        path: "/goodsNews",
         name: 'goodsnews',
         component: GoodsNews
     },
@@ -73,6 +73,7 @@ let routes = [{
     {
         path: "/cart",
         component: Cart,
+        name:'cart',
         meta: {
             requireAuth: true
         }
@@ -108,29 +109,29 @@ let routes = [{
 let router = new VueRouter({
     routes
 });
-//全局守卫
-// router.beforeEach((to, from, next) => {
-//     // console.log("beforeEach");
-//     // console.log("to",to);
-//     // 进入购物车和我的，必须要登录
-//     if (to.meta.requireAuth) {
-//         // if(是否登录){
-//         if (sessionStorage.getItem("userid")) {
-//             next();
-//         } else {
-//             Dialog.confirm({
-//                     title: '您还尚未登录',
-//                     message: '是否前往登录页面',
-//                 })
-//                 .then(() => {
-//                     next({ path: "/loginAReg", query: { toPath: to.path } });
-//                 })
-//                 .catch(() => {
-//                     next({ path: "/index", query: { toPath: to.path } });
-//                 });
-//         }
-//     } else {
-//         next();
-//     }
-// });
+// 全局守卫
+router.beforeEach((to, from, next) => {
+    // console.log("beforeEach");
+    // console.log("to",to);
+    // 进入购物车和我的，必须要登录
+    if (to.meta.requireAuth) {
+        // if(是否登录){
+        if (sessionStorage.getItem("userid")) {
+            next();
+        } else {
+            Dialog.confirm({
+                    title: '您还尚未登录',
+                    message: '是否前往登录页面',
+                })
+                .then(() => {
+                    next({ path: "/login"});
+                })
+                .catch(() => {
+                    next({ path: "/index"});
+                });
+        }
+    } else {
+        next();
+    }
+});
 export default router;

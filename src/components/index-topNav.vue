@@ -1,7 +1,7 @@
 <template>
   <div class="top-nav">
             <span class="iconfont icon-richscan_icon"></span>
-            <span class="iconfont icon-fukuanma"></span>
+            <span class="iconfont icon-hongbao"></span>
             <span class="iconfont icon-kaquan"></span>
             <span class="iconfont icon-qiche"></span>
             <ul>
@@ -40,7 +40,7 @@ export default {
     font-size: 24px;
     font-weight: bolder;
 }
-.top-nav .icon-fukuanma {
+.top-nav .icon-hongbao {
     font-size: 31px;
 }
 .top-nav .icon-kaquan {

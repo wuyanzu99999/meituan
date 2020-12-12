@@ -2,20 +2,20 @@
   <div>
     <goodsBanner />
     <goodslist />
-    <footeraa class="bottom-box" />
+    <!-- <footeraa class="bottom-box" /> -->
   </div>
 </template>
 
 <script>
 import goodsBanner from "../components/goodsBanner";
 import goodslist from "../components/goodslist";
-import footeraa from "../components/footer";
+// import footeraa from "../components/footer";
 
 export default {
   name: "Goodlist",
   components: {
     goodsBanner,
-    footeraa,
+    // footeraa,
     goodslist,
   },
   data() {

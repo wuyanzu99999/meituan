@@ -103,16 +103,10 @@
           <!-- <span>全文</span> -->
         </div>
       </div>
-      <div class="taking-end">
-        <p>999+条外面评论&nbsp;></p>
-        <p>满25减13,满38减17,满55减28,满85减3,满119减53</p>
-        <div class="taking-end2">
-          <a class="taking-end2-p">￥0 <span>免配送费</span></a>
-          <ul>
-            <li>￥15起送</li>
-            <li>来点必送品</li>
-          </ul>
-        </div>
+    </div>
+    <div class="footer">
+      <div class="footer-con">
+        <input type="button" value="去结算" @click="goCart" />
       </div>
     </div>
   </div>
@@ -121,7 +115,6 @@
 import axios from "axios";
 export default {
   name: "GoodsNews",
-  components: {},
   data() {
     return {
       goodsnews: {},
@@ -153,9 +146,6 @@ export default {
           uid: sessionStorage.getItem("userid"),
           shopid: this.shopId,
           gid: this.goodsId,
-          // uid: 12,
-          // shopid: 12,       
-          // gid: 1,
           goodnumber: 1,
           goodprice: this.goodsnews.goodprice,
         })
@@ -164,6 +154,15 @@ export default {
           // this.goodsnews = res.data.data;
           console.log("购物车添加商品成功之后返回的数据", res);
         });
+    },
+    goCart() {
+      this.$router.push({
+        name: "cart",
+        params: {
+          goodsId:this.goodsId,
+          shopId: this.shopId,
+        },
+      });
     },
   },
 };
@@ -492,5 +491,36 @@ export default {
 }
 .taking-end2 ul li:nth-of-type(1) {
   margin-top: 0.1rem;
+}
+.footer {
+  width: 100%;
+  height: 68px;
+  background-color: #f0f0f0;
+  padding: 0 10px;
+}
+.footer .footer-con {
+  overflow: hidden;
+  margin-top: 12px;
+  width: 100%;
+  height: 45px;
+  background-color: #232426;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+.footer .footer-con input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-weight: bold;
+  font-style: 16px;
+  background-color: #464449;
+  color: #ffd34e;
+}
+
+.footer .footer-con input:last-child {
+  background-color: #ffd34e;
+  color: #464449;
 }
 </style>
