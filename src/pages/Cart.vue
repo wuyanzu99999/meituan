@@ -1,9 +1,7 @@
 <template>
   <div class="container">
     <div class="header">
-      {{$route.params.shopId}}
-      {{$route.params.goodsId}}
-      <router-link to="goodslist/1" tag="div">
+      <router-link to="goodsNews" tag="div">
         <input type="button" value="<" />
         提交订单
       </router-link>
@@ -32,13 +30,13 @@
       <div class="wrapper">
         <div class="wrapper-con">
           <h5>
-            千味一锅.香锅冒菜
+            {{ goodslist.shopname }}
             <span>美团快送</span>
           </h5>
           <table class="cart-list">
-            <tr>
+            <tr v-if="isDelete">
               <td>
-                <img src alt />
+                <img :src=goodslistImg>
               </td>
               <td>
                 <div class="title">{{ goodslist.goodsname }}</div>
@@ -46,18 +44,14 @@
               </td>
               <td>￥{{ goodslist.goodprice/goodslist.goodnumber }}</td>
               <td>
-                <input type="button" value="-" @click="reduce(index)" :disabled="goodslist.goodnumber  <= 0" />
+                <input type="button" value="-" @click="reduce" :disabled="goodslist.goodnumber  <= 0" />
                 {{ goodslist.goodnumber }}
-                <input
-                  type="button"
-                  value="+"
-                  @click="add(index)"
-                  :disabled="goodslist.goodnumber  <= 0"
+                <input type="button" value="+" @click="add" :disabled="goodslist.goodnumber  <= 0"
                 />
               </td>
               <td>{{ goodslist.goodprice}}</td>
               <td>
-                <input type="button" value="x" @click="delGoods(index)" />
+                <input type="button" value="x" @click="delGoods" />
               </td>
             </tr>
           </table>
@@ -152,7 +146,7 @@
     <div class="footer">
       <div class="footer-con">
         <div class="footer-left">
-          <p>{{ totalPrice() }}</p>
+          <p>{{ goodslist.goodprice}}</p>
           <p>已优惠￥17.6</p>
         </div>
         <input type="button" value="找人付" />
@@ -170,17 +164,17 @@ export default {
   name: "Cart",
   data() {
     return {
-      goodslist: {
-        
-      },
-      userId: sessionStorage.getItem("userId")
+      goodslist: {},
+      userId: sessionStorage.getItem("userid"),
+      goodslistImg:"",
+      isDelete:true
     };
   },
   created() {
-    // console.log(this.userId);
     axios.get("/api/personCart/findCartByUid", {}).then(res => {
-      this.goodslist = res.data.data;
-      console.log("goodsnews", "res", res.data.data);
+      this.goodslist = res.data.data[0];
+      console.log("goodsnews", "res", res.data.data[0]);
+      this.goodslistImg="./img/"+this.goodslist.image;
     });
   },
   methods: {
@@ -188,8 +182,8 @@ export default {
       axios
         .post("/api/order/insertOrder/", {
           uid: sessionStorage.getItem("userid"),
-          shopid: this.$route.params.shopId,
-          gid: this.$route.params.goodsId,
+          shopid: this.$route.query.shopId,
+          gid: this.$route.query.goodsId,
           goodsnumber: this.goodslist.goodnumber,
           price:  this.goodslist.goodprice,
         })
@@ -198,18 +192,17 @@ export default {
         });
     },
     reduce() {
-      this.goodslist.count--;
+      this.goodslist.goodnumber--;
     },
     add() {
-      this.goodslist.count++;
+      this.goodslist.goodnumber++;
     },
     delGoods() {
       Dialog.confirm({
         title: "亲,您要删除该商品吗？"
-        // message: "弹窗内容",
       })
         .then(() => {
-          this.goodslist={};
+          this.isDelete=false;
         })
         .catch(() => {});
     }

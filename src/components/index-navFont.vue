@@ -5,7 +5,6 @@
         <div class="shopList">
           <router-link to="/goodslist/1" tag="dl"
             ><dl class="one">
-              <!-- <dt style="backgorund"></dt> -->
               <img :src="arr[0].image" alt="" width="166px" height="122px" />
               <dd>
                 <p id="name-font">
@@ -144,13 +143,10 @@ export default {
     return {
       active: "",
       arr: [],
-
-      //   imgArr="../../public/img/index/",
     };
   },
   created() {
     axios.get("/api/shop/findAll", {}).then((res) => {
-      // this.imgArr += res.data.data;
       this.arr = res.data.data;
     //   console.log("查询出来的所有店家信息", res.data);
     //   console.log(res.data.data);
@@ -185,26 +181,6 @@ dl {
   background-color: #ffffff;
   overflow: hidden;
   cursor: pointer;
-}
-.one dt {
-  /* background: url("../../public/img/index/index-img01.jpg"); */
-  background-size: 166px 122px;
-}
-.two dt {
-  /* background: url("../assets/img/1.jpg"); */
-  background-size: 166px 122px;
-}
-.three dt {
-  /* background: url("../assets/img/2.jpg"); */
-  background-size: 166px 122px;
-}
-.four dt {
-  /* background: url("../assets/img/3.jpg"); */
-  background-size: 166px 122px;
-}
-dl dt {
-  width: 166px;
-  height: 122px;
 }
 
 dl dd {

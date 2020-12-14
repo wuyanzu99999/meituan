@@ -59,10 +59,11 @@ export default {
     return {
       isFixed: false,
       goods: [],
-      shopId: this.$route.params.id,
+      shopId: this.$route.params.shopId,
     };
   },
   created() {
+    console.log("goodslist",this.shopId);
     axios
       .get("/api/goods/selectGoodsByShopId?shopid=" + this.shopId, {})
       .then((res) => {
@@ -88,9 +89,9 @@ export default {
     },
     goDetail(id) {
       this.$router.push({
-        name: "goodsnews",
-        params: {
-          id,
+        path: "/goodsnews",
+        query: {
+          goodsId:id,
           shopId:this.shopId
         },
       });

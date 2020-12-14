@@ -17,7 +17,7 @@
         />
       </router-link>
       <img src="../../public/img/vip/head.jpg" alt="" />
-      <p>{{ username }}</p>
+      <p>{{username}}</p>
       <p>成长值：0&nbsp;<span></span> &nbsp; 积分：0</p>
     </div>
     <div class="Grade">
@@ -95,7 +95,7 @@ export default {
   data() {
     return {
       username: "",
-      userId:sessionStorage.getItem("userId")
+      userId:sessionStorage.getItem("userid")
     };
   },
   created() {

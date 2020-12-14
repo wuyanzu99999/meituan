@@ -32,24 +32,28 @@
 import axios from "axios";
 export default {
   name: "goodsBanner",
-  data() {
+  data(){
     return {
-      shopId: this.$route.params.id,
+      shopId: this.$route.params.shopId,
       shop: {},
-      shopImg:"./img/"+this.shop.image
-
+      shopImg:""
     };
   },
   created() {
-    console.log()
+    // console.log(this.$route.params.shopId);
+    // console.log(this.shopId);
     axios
-      .get("/api/shop/findByShopId?id=" + this.shopId, {
+      .get("/api/shop/findByShopId?id="+this.$route.params.shopId, {
         //  data:"shopid="+this.shopId,
       })
       .then(res => {
         console.log("根据商铺ID查询出来的商家信息", res.data);
         this.shop = res.data.data;
+        console.log(res.data.data.image);
+        this.shopImg = "./img/"+res.data.data.image
+        // console.log(this.shopImg);
       });
+      console.log(this.shop);
   }
 };
 </script>

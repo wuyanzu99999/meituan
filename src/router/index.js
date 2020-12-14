@@ -37,7 +37,7 @@ let routes = [{
         component: Emile
     },
     {
-        path: "/goodslist/:id",
+        path: "/goodslist/:shopId",
         component: Goodlist
     },
     {

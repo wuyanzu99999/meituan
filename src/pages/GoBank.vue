@@ -169,11 +169,10 @@ export default {
   data() {
     return {
       username: "",
-      userId:sessionStorage.getItem("userId")
+      userId:sessionStorage.getItem("userid")
     };
   },
   created() {
-    // console.log(22);
     axios.get("/api/user/findOneById?id="+this.userId, {}).then((res) => {
       this.username = res.data.data.username;
         console.log("gobank页面发送请求成功后返回的数据",this.username);

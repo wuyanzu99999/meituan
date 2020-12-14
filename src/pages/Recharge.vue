@@ -78,19 +78,17 @@
 import axios from "axios";
 export default {
   name: "Recharge",
-  components: {},
   data() {
     return {
-        username:'',
-        userId:sessionStorage.getItem("userId")
+      username:"",
+      userId:sessionStorage.getItem("userid")
     };
   },
   created() {
     console.log(22);
     axios.get("/api/user/findOneById?id="+this.userId, {}).then((res) => {
       this.username = res.data.data.username;
-        console.log("充值页面返回的用户信息",this.username);
-
+      console.log("会员中心返回的商品信息", this.username);
     });
   },
 };

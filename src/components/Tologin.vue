@@ -92,7 +92,6 @@ export default {
         })
         .then((res) => {
           if (res.data.code == 200) {
-            // this.$router.push("{{path:this.$route.query.toPath}}");
             this.$router.push("/index");
             sessionStorage.setItem("userid", res.data.data.id); //保存后端返回的data 中的userid到session中
             console.log(sessionStorage);

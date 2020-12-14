@@ -118,15 +118,14 @@ export default {
   data() {
     return {
       goodsnews: {},
-      goodsId: this.$route.params.id,
-      shopId: this.$route.params.shopId,
+      goodsId: this.$route.query.goodsId,
+      shopId:  this.$route.query.shopId,
     };
   },
   //请求商品详情
   created() {
-    console.log(this.goodsId);
-    axios
-      .get("/api/goods/selectGoodsByGoodsId?goodsid=" + this.goodsId, {})
+    console.log(this.shopId);
+    axios.get("/api/goods/selectGoodsByGoodsId?goodsid=" + this.goodsId, {})
       .then((res) => {
         console.log("res", res.data);
         this.goodsnews = res.data.data;
@@ -157,8 +156,8 @@ export default {
     },
     goCart() {
       this.$router.push({
-        name: "cart",
-        params: {
+        path: "/cart",
+        query: {
           goodsId:this.goodsId,
           shopId: this.shopId,
         },

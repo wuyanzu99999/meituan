@@ -24,24 +24,10 @@
             高新六路科技四路口
             <span>距我最近</span>
           </h5>
-          <li>
+          <li v-for="(bus,index) in busList1" :key="index">     
             <div class="left">
-              <p>34路</p>
-              <p>开往经九路西部家具城</p>
-            </div>
-            <div class="right">营运中</div>
-          </li>
-          <li>
-            <div class="left">
-              <p>251路</p>
-              <p>开往郁家庄</p>
-            </div>
-            <div class="right">营运中</div>
-          </li>
-          <li>
-            <div class="left">
-              <p>608路区间车</p>
-              <p>开往南窑头</p>
+              <p> {{busList1[index].line}}</p>
+              <p> {{busList1[index].to}}</p>
             </div>
             <div class="right">营运中</div>
           </li>
@@ -58,24 +44,10 @@
             南窑头
             <b>231米</b>
           </h5>
-          <li>
+          <li v-for="(bus,index) in busList2" :key="index">     
             <div class="left">
-              <p>34路</p>
-              <p>开往南窑头</p>
-            </div>
-            <div class="right">营运中</div>
-          </li>
-          <li>
-            <div class="left">
-              <p>251路</p>
-              <p>开往南窑头</p>
-            </div>
-            <div class="right">营运中</div>
-          </li>
-          <li>
-            <div class="left">
-              <p>34路</p>
-              <p>开往南窑头</p>
+              <p> {{busList2[index].line}}</p>
+              <p> {{busList2[index].to}}</p>
             </div>
             <div class="right">营运中</div>
           </li>
@@ -154,8 +126,60 @@
   </div>
 </template>
 <script>
+// import axios from 'axios'
 export default {
   name: "Bus",
+  data(){
+    return {
+      busList1:[
+        {
+          "line":"34路",
+          "to":"开往经九路西部家具城"
+        },
+        {
+          "line":"251路",
+          "to":"开往郁家庄"
+        },
+        {
+          "line":"608路区间车",
+          "to":"开往南窑头"
+        },
+      ],
+      busList2:[
+        {
+          "line":"28路",
+          "to":"开往钟楼"
+        },
+        {
+          "line":"251路",
+          "to":"开往鼓楼"
+        },
+        {
+          "line":"608路区间车",
+          "to":"开往高新六路科技四路口"
+        },
+      ]
+    }
+  },
+  // created(){
+  //   axios.all([
+  //       axios({
+  //           url:"http://localhost:3000/busList1"
+  //         }),
+  //       axios(
+  //         {
+  //           url:"http://localhost:3000/busList2"
+  //         })
+  //   ])
+  //   .then(axios.spread(function(busList1,busList2){
+  //     console.log("books",books.data);
+  //       this.busList1=busList1.data;
+  //     console.log("users",users.data);
+  //       this.busList1=busList2.data;
+
+  //   }))
+  // }
+
 };
 </script>
 <style scoped>

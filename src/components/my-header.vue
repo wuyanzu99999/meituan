@@ -78,7 +78,8 @@ export default {
     };
   },
   created() {
-    axios.get("/api/user/findOneById?id="+this.userid, {}).then((res) => {
+    console.log()
+    axios.get("/api/user/findOneById?id="+this.isShow, {}).then((res) => {
         this.username=res.data.data.username;
       console.log('根据sessionStorge中的userid来查询对应的username',this.username);
     });
